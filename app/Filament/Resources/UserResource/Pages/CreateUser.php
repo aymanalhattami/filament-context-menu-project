@@ -3,10 +3,30 @@
 namespace App\Filament\Resources\UserResource\Pages;
 
 use App\Filament\Resources\UserResource;
+use App\Helper\ContentMenu;
+use App\Helper\ContentMenuItem;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateUser extends CreateRecord
 {
     protected static string $resource = UserResource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Actions\Action::make('create')
+                ->action('create')
+                ->link(),
+        ];
+    }
+
+    public static function getContextMenu(): ContentMenu
+    {
+        return ContentMenu::make()
+            ->items([
+                ContentMenuItem::make()
+                    ->title('Create New user'),
+            ]);
+    }
 }
