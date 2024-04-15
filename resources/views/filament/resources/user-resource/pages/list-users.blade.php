@@ -13,4 +13,6 @@
 
         {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::RESOURCE_PAGES_LIST_RECORDS_TABLE_AFTER, scopes: $this->getRenderHookScopes()) }}
     </div>
+
+    <x-pure-js-context-menu />
 </x-filament-panels::page>

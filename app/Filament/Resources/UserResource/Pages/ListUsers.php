@@ -3,6 +3,8 @@
 namespace App\Filament\Resources\UserResource\Pages;
 
 use App\Filament\Resources\UserResource;
+use App\Helper\ContentMenu;
+use App\Helper\ContentMenuItem;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
@@ -19,8 +21,12 @@ class ListUsers extends ListRecords
         ];
     }
 
-    public static function contextMenu(): array
+    public static function getContextMenu(): ContentMenu
     {
-        return [];
+        return ContentMenu::make()
+            ->items([
+                ContentMenuItem::make()
+                    ->title('Create New user'),
+            ]);
     }
 }
