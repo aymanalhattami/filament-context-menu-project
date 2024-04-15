@@ -1,0 +1,9 @@
+- right click menu on list page
+- right click menu on create page
+- right click menu on edit page
+- right click menu on view page
+- right click menu on manage page
+- right click menu when there is an open modal
+- right click menu on table
+- right click menu for navigation bar
+- 
