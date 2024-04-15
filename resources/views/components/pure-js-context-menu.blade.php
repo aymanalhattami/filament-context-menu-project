@@ -1,20 +1,17 @@
-<div id="contextMenuTrigger" class="relative z-50 flex h-[150px] w-[300px] text-sm items-center justify-center rounded-md border border-neutral-300 border-dashed text-neutral-800">
-    <span class="cursor-default text-neutral-400">Right click here</span>
-    <div id="contextMenu" class="z-50 min-w-[8rem] text-neutral-800 rounded-md border border-neutral-200/70 bg-white text-sm fixed p-1 shadow-md w-64" style="display: none;">
-        @foreach(static::getContextMenu()->getItems() as $item)
-            <div @click="contextMenuOpen=false" class="relative flex cursor-default select-none group items-center rounded px-2 py-1.5 hover:bg-neutral-100 outline-none pl-8  data-[disabled]:opacity-50 data-[disabled]:pointer-events-none">
-                <span>{{ $item->getTitle() }}</span>
-                <span class="ml-auto text-xs tracking-widest text-neutral-400 group-hover:text-neutral-600">⌘[</span>
-            </div>
-        @endforeach
-    </div>
+<div id="contextMenu" class="z-50 min-w-[8rem] text-neutral-800 rounded-md border border-neutral-200/70 bg-white text-sm fixed p-1 shadow-md w-64" style="display: none;">
+    @foreach(static::getContextMenu()->getItems() as $item)
+        <div @click="contextMenuOpen=false" class="relative flex cursor-default select-none group items-center rounded px-2 py-1.5 hover:bg-neutral-100 outline-none pl-8  data-[disabled]:opacity-50 data-[disabled]:pointer-events-none">
+            <span>{{ $item->getTitle() }}</span>
+            <span class="ml-auto text-xs tracking-widest text-neutral-400 group-hover:text-neutral-600">⌘[</span>
+        </div>
+    @endforeach
 </div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var contextMenuOpen = false;
         var contextMenu = document.getElementById('contextMenu');
-        var contextMenuTrigger = document.getElementById('contextMenuTrigger');
+        var contextMenuTrigger = document.getElementsByClassName('fi-main')[0];
 
         contextMenuTrigger.addEventListener('contextmenu', function(event) {
             contextMenuOpen = true;
