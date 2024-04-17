@@ -6,4 +6,7 @@
 - right click menu when there is an open modal
 - right click menu on table
 - right click menu for navigation bar
-- 
+- add context menu for resource pages
+- add context menu for custom pages
+- use custom view for contextMenu
+- use custom view for contextMenuItem
