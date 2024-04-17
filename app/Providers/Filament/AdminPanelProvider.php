@@ -59,11 +59,11 @@ class AdminPanelProvider extends PanelProvider
             ->viteTheme('resources/css/filament/admin/theme.css');
     }
 
-    public function boot(): void
-    {
-        FilamentView::registerRenderHook(
-            PanelsRenderHook::PAGE_START,
-            fn () => view('components.pure-js-context-menu'),
-        );
-    }
+//    public function boot(): void
+//    {
+//        FilamentView::registerRenderHook(
+//            PanelsRenderHook::PAGE_START,
+//            fn () => view('components.pure-js-context-menu'),
+//        );
+//    }
 }

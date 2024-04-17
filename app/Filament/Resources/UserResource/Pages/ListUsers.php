@@ -3,8 +3,8 @@
 namespace App\Filament\Resources\UserResource\Pages;
 
 use App\Filament\Resources\UserResource;
-use App\Helper\ContentMenu;
-use App\Helper\ContentMenuItem;
+use AymanAlhattami\FilamentContextMenu\ContentMenu;
+use AymanAlhattami\FilamentContextMenu\ContentMenuItem;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
