@@ -26,8 +26,8 @@ class CreateUser extends CreateRecord
         return ContentMenu::make()
             ->items([
                 ContentMenuItem::make()
-                    ->title('Create New user')
-                    ->url('https://www.google.com')
+                    ->title('Go back')
+                    ->url(ListUsers::getUrl())
                     ->target('_blank'),
             ]);
     }

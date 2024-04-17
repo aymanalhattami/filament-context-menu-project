@@ -24,7 +24,12 @@ class EditUser extends EditRecord
         return ContentMenu::make()
             ->items([
                 ContentMenuItem::make()
-                    ->title('Create New user'),
+                    ->title('Go back')
+                    ->url(ListUsers::getUrl())
+                    ->target('_blank'),
+                ContentMenuItem::make()
+                    ->title('Create New user')
+                    ->url(CreateUser::getUrl())
             ]);
     }
 }
