@@ -4,10 +4,10 @@ namespace App\Filament\Resources\UserResource\Pages;
 
 use App\Filament\Resources\UserResource;
 use App\Models\User;
-use AymanAlhattami\FilamentContextMenu\ContentMenu;
 use AymanAlhattami\FilamentContextMenu\ContentMenuDivider;
-use AymanAlhattami\FilamentContextMenu\ContentMenuItem;
 use AymanAlhattami\FilamentContextMenu\ContextMenu;
+use AymanAlhattami\FilamentContextMenu\GoBackAction;
+use AymanAlhattami\FilamentContextMenu\RefreshAction;
 use Filament\Actions;
 use Filament\Actions\Action;
 use Filament\Resources\Pages\EditRecord;
@@ -20,6 +20,8 @@ class EditUser extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
+            Actions\ForceDeleteAction::make(),
+            Actions\RestoreAction::make(),
         ];
     }
 
@@ -27,6 +29,8 @@ class EditUser extends EditRecord
     {
         return ContextMenu::make()
             ->actions([
+                GoBackAction::make(),
+                RefreshAction::make(),
                 Action::make('List users')
                     ->translateLabel()
                     ->link()

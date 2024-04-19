@@ -3,10 +3,12 @@
 namespace App\Filament\Resources\UserResource\Pages;
 
 use App\Filament\Resources\UserResource;
-use AymanAlhattami\FilamentContextMenu\ContentMenuItem;
 use AymanAlhattami\FilamentContextMenu\ContextMenu;
+use AymanAlhattami\FilamentContextMenu\GoBackAction;
+use AymanAlhattami\FilamentContextMenu\RefreshAction;
 use Filament\Actions;
 use Filament\Actions\Action;
+use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
 class ListUsers extends ListRecords
@@ -24,13 +26,15 @@ class ListUsers extends ListRecords
     {
         return ContextMenu::make()
             ->actions([
+                GoBackAction::make(),
+                RefreshAction::make(),
                 Action::make('Create User')
                     ->translateLabel()
                     ->link()
                     ->color('gray')
                     ->url(CreateUser::getUrl())
                     ->icon('heroicon-o-user-plus'),
-                Actions\CreateAction::make()
+                CreateAction::make()
                     ->label('Quick create')
                     ->translateLabel()
                     ->icon('heroicon-o-user-plus')

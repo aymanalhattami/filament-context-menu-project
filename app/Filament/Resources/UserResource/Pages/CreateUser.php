@@ -4,10 +4,9 @@ namespace App\Filament\Resources\UserResource\Pages;
 
 use App\Filament\Resources\UserResource;
 use App\Models\User;
-use AymanAlhattami\FilamentContextMenu\ContentMenu;
-use AymanAlhattami\FilamentContextMenu\ContentMenuItem;
 use AymanAlhattami\FilamentContextMenu\ContextMenu;
-use Filament\Actions;
+use AymanAlhattami\FilamentContextMenu\GoBackAction;
+use AymanAlhattami\FilamentContextMenu\RefreshAction;
 use Filament\Actions\Action;
 use Filament\Resources\Pages\CreateRecord;
 
@@ -19,6 +18,8 @@ class CreateUser extends CreateRecord
     {
         return ContextMenu::make()
             ->actions([
+                GoBackAction::make(),
+                RefreshAction::make(),
                 Action::make('List users')
                     ->translateLabel()
                     ->link()
