@@ -32,7 +32,8 @@ class EditUser extends EditRecord
                     ->link()
                     ->color('gray')
                     ->url(ListUsers::getUrl())
-                    ->icon('heroicon-o-users'),
+                    ->icon('heroicon-o-users')
+                    ->badge(User::count()),
                 Action::make('Create user')
                     ->translateLabel()
                     ->link()

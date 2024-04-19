@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\UserResource\Pages;
 
 use App\Filament\Resources\UserResource;
+use App\Models\User;
 use AymanAlhattami\FilamentContextMenu\ContentMenu;
 use AymanAlhattami\FilamentContextMenu\ContentMenuItem;
 use AymanAlhattami\FilamentContextMenu\ContextMenu;
@@ -14,15 +15,6 @@ class CreateUser extends CreateRecord
 {
     protected static string $resource = UserResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\Action::make('create')
-                ->action('create')
-                ->link(),
-        ];
-    }
-
     public function getContextMenu(): ContextMenu
     {
         return ContextMenu::make()
@@ -32,7 +24,8 @@ class CreateUser extends CreateRecord
                     ->link()
                     ->color('gray')
                     ->url(ListUsers::getUrl())
-                    ->icon('heroicon-o-users'),
+                    ->icon('heroicon-o-users')
+                    ->badge(User::count()),
             ]);
     }
 }
