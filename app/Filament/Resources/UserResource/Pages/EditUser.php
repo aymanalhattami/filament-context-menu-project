@@ -24,15 +24,6 @@ class EditUser extends EditRecord
 
     protected static string $resource = UserResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\DeleteAction::make(),
-            Actions\ForceDeleteAction::make(),
-            Actions\RestoreAction::make(),
-        ];
-    }
-
     public function getContextMenuActions(): array
     {
         return [
@@ -118,7 +109,26 @@ class EditUser extends EditRecord
                 ->record($this->getRecord())
                 ->translateLabel()
                 ->icon('heroicon-o-trash')
-                ->link(),
+                ->link()
+                ->visible(function(){
+                    return (bool) !$this->getRecord()->trashed();
+                }),
+            Actions\ForceDeleteAction::make()
+                ->record($this->getRecord())
+                ->translateLabel()
+                ->icon('heroicon-o-trash')
+                ->link()
+                ->visible(function(){
+                    return (bool) $this->getRecord()->trashed();
+                }),
+            Actions\RestoreAction::make()
+                ->record($this->getRecord())
+                ->translateLabel()
+                ->icon('heroicon-o-arrow-uturn-left')
+                ->link()
+                ->visible(function(){
+                    return (bool) $this->getRecord()->trashed();
+                })
         ];
     }
 }

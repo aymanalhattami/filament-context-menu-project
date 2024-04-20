@@ -107,7 +107,26 @@ class ViewUser extends ViewRecord
                 ->record($this->getRecord())
                 ->translateLabel()
                 ->icon('heroicon-o-trash')
-                ->link(),
+                ->link()
+                ->visible(function(){
+                    return (bool) !$this->getRecord()->trashed();
+                }),
+            Actions\ForceDeleteAction::make()
+                ->record($this->getRecord())
+                ->translateLabel()
+                ->icon('heroicon-o-trash')
+                ->link()
+                ->visible(function(){
+                    return (bool) $this->getRecord()->trashed();
+                }),
+            Actions\RestoreAction::make()
+                ->record($this->getRecord())
+                ->translateLabel()
+                ->icon('heroicon-o-arrow-uturn-left')
+                ->link()
+                ->visible(function(){
+                    return (bool) $this->getRecord()->trashed();
+                })
         ];
     }
 }
