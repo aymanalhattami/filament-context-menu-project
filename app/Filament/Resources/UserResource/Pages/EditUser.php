@@ -30,6 +30,7 @@ class EditUser extends EditRecord
             GoBackAction::make(),
             GoForwardAction::make(),
             RefreshAction::make(),
+            ContextMenuDivider::make(),
             Actions\ViewAction::make("View")
                 ->label('View user')
                 ->record($this->getRecord())

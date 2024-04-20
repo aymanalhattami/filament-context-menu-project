@@ -7,6 +7,7 @@ use App\Filament\Imports\UserImporter;
 use App\Filament\Resources\UserResource;
 use App\Models\User;
 use AymanAlhattami\FilamentContextMenu\ContextMenu;
+use AymanAlhattami\FilamentContextMenu\ContextMenuDivider;
 use AymanAlhattami\FilamentContextMenu\CopyAction;
 use AymanAlhattami\FilamentContextMenu\GoBackAction;
 use AymanAlhattami\FilamentContextMenu\GoForwardAction;
@@ -48,6 +49,7 @@ class ListUsers extends ListRecords
             GoBackAction::make(),
             GoForwardAction::make(),
             RefreshAction::make(),
+            ContextMenuDivider::make(),
             Actions\ImportAction::make()
                 ->importer(UserImporter::class)
                 ->link()

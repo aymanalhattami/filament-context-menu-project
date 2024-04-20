@@ -11,3 +11,4 @@
 - use custom view for contextMenu
 - use custom view for contextMenuItem
 - action with modal
+- set view() function for ContextMenuDivider
