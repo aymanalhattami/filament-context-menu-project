@@ -7,6 +7,7 @@ use App\Models\User;
 use AymanAlhattami\FilamentContextMenu\ContextMenu;
 use AymanAlhattami\FilamentContextMenu\CopyAction;
 use AymanAlhattami\FilamentContextMenu\GoBackAction;
+use AymanAlhattami\FilamentContextMenu\GoForwardAction;
 use AymanAlhattami\FilamentContextMenu\InteractsWithContextMenuActions;
 use AymanAlhattami\FilamentContextMenu\RefreshAction;
 use Filament\Actions;
@@ -25,6 +26,7 @@ class ListUsers extends ListRecords
     {
         return [
             GoBackAction::make(),
+            GoForwardAction::make(),
             RefreshAction::make(),
             CreateAction::make('Create user')
                 ->label('Create user')

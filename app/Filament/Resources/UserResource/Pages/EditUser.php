@@ -6,7 +6,10 @@ use App\Filament\Resources\UserResource;
 use App\Models\User;
 use AymanAlhattami\FilamentContextMenu\ContextMenu;
 use AymanAlhattami\FilamentContextMenu\ContextMenuDivider;
+use AymanAlhattami\FilamentContextMenu\GoBackAction;
+use AymanAlhattami\FilamentContextMenu\GoForwardAction;
 use AymanAlhattami\FilamentContextMenu\InteractsWithContextMenuActions;
+use AymanAlhattami\FilamentContextMenu\RefreshAction;
 use Filament\Actions;
 use Filament\Actions\Action;
 use Filament\Forms\Components\TextInput;
@@ -33,7 +36,10 @@ class EditUser extends EditRecord
     public function getContextMenuActions(): array
     {
         return [
-            Actions\Action::make("View")
+            GoBackAction::make(),
+            GoForwardAction::make(),
+            RefreshAction::make(),
+            Actions\ViewAction::make("View")
                 ->label('View user')
                 ->record($this->getRecord())
                 ->infolist([

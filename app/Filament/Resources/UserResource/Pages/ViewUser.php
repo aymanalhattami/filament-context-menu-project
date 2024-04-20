@@ -5,7 +5,10 @@ namespace App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource;
 use App\Models\User;
 use AymanAlhattami\FilamentContextMenu\ContextMenuDivider;
+use AymanAlhattami\FilamentContextMenu\GoBackAction;
+use AymanAlhattami\FilamentContextMenu\GoForwardAction;
 use AymanAlhattami\FilamentContextMenu\InteractsWithContextMenuActions;
+use AymanAlhattami\FilamentContextMenu\RefreshAction;
 use Filament\Actions;
 use Filament\Actions\Action;
 use Filament\Forms\Components\Grid;
@@ -23,6 +26,9 @@ class ViewUser extends ViewRecord
     public function getContextMenuActions(): array
     {
         return [
+            GoBackAction::make(),
+            GoForwardAction::make(),
+            RefreshAction::make(),
             Actions\EditAction::make('Edit modal')
                 ->label('Edit user')
                 ->record($this->getRecord())
@@ -89,7 +95,8 @@ class ViewUser extends ViewRecord
                             TextInput::make('password')->password(),
                         ])
                 ]),
-            Action::make('Create user page')
+            Actions\CreateAction::make('Create user page')
+                ->label('Create user page')
                 ->translateLabel()
                 ->link()
                 ->color('gray')
