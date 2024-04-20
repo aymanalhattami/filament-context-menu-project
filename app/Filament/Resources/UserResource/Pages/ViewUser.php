@@ -24,7 +24,7 @@ class ViewUser extends ViewRecord
     {
         return [
             Actions\EditAction::make('Edit modal')
-                ->label('Edit modal')
+                ->label('Edit user')
                 ->record($this->getRecord())
                 ->form([
                     Grid::make(2)
@@ -36,7 +36,7 @@ class ViewUser extends ViewRecord
                 ->link()
                 ->icon('heroicon-o-pencil'),
             Actions\EditAction::make()
-                ->label('Edit page')
+                ->label('Edit user page')
                 ->color('gray')
                 ->link()
                 ->url(EditUser::getUrl(['record' => $this->getRecord()]))
@@ -48,8 +48,8 @@ class ViewUser extends ViewRecord
                 ->url(ListUsers::getUrl())
                 ->icon('heroicon-o-users')
                 ->badge(User::count()),
-            Action::make('Edit name - modal')
-                ->label('Edit name - modal')
+            Action::make('Edit name')
+                ->label('Edit name')
                 ->form([
                     \Filament\Forms\Components\Grid::make(2)
                         ->schema([
@@ -78,7 +78,7 @@ class ViewUser extends ViewRecord
                 ->icon('heroicon-o-pencil'),
             Actions\CreateAction::make()
                 ->model(User::class)
-                ->label('Create modal')
+                ->label('Create user')
                 ->link()
                 ->icon('heroicon-o-plus')
                 ->form([
@@ -89,7 +89,7 @@ class ViewUser extends ViewRecord
                             TextInput::make('password')->password(),
                         ])
                 ]),
-            Action::make('Create page')
+            Action::make('Create user page')
                 ->translateLabel()
                 ->link()
                 ->color('gray')

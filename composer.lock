@@ -78,7 +78,7 @@
             "dist": {
                 "type": "path",
                 "url": "../@packages/aymanalhattami/filament-context-menu",
-                "reference": "51325330fecf43121b8ed71e57618a298684ccf8"
+                "reference": "34c5b0adf98f48703bc6cabe8a680e3345ca2072"
             },
             "require": {
                 "filament/filament": "^3.0",

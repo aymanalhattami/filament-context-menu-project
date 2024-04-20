@@ -34,6 +34,7 @@ class EditUser extends EditRecord
     {
         return [
             Actions\Action::make("View")
+                ->label('View user')
                 ->record($this->getRecord())
                 ->infolist([
                     Grid::make(2)
@@ -47,7 +48,7 @@ class EditUser extends EditRecord
                 ->link()
                 ->icon('heroicon-o-eye'),
             Actions\ViewAction::make()
-                ->label('View page')
+                ->label('View user page')
                 ->link()
                 ->url(ViewUser::getUrl(['record' => $this->getRecord()]))
                 ->icon('heroicon-o-eye'),
@@ -58,7 +59,8 @@ class EditUser extends EditRecord
                 ->url(ListUsers::getUrl())
                 ->icon('heroicon-o-users')
                 ->badge(User::count()),
-            Action::make('Update by modal')
+            Action::make('Edit name')
+                ->label('Edit name')
                 ->form([
                     \Filament\Forms\Components\Grid::make(2)
                         ->schema([
@@ -86,7 +88,7 @@ class EditUser extends EditRecord
                 ->color('gray')
                 ->icon('heroicon-o-pencil'),
             Actions\CreateAction::make()
-                ->label('Create by modal')
+                ->label('Create user')
                 ->model(User::class)
                 ->link()
                 ->icon('heroicon-o-plus')
@@ -99,7 +101,7 @@ class EditUser extends EditRecord
                         ])
                 ])
             ,
-            Action::make('Create user')
+            Action::make('Create user page')
                 ->translateLabel()
                 ->link()
                 ->color('gray')
