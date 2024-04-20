@@ -4,6 +4,7 @@ namespace App\Filament\Resources\UserResource\Pages;
 
 use App\Filament\Resources\UserResource;
 use AymanAlhattami\FilamentContextMenu\ContextMenu;
+use AymanAlhattami\FilamentContextMenu\CopyAction;
 use AymanAlhattami\FilamentContextMenu\GoBackAction;
 use AymanAlhattami\FilamentContextMenu\RefreshAction;
 use Filament\Actions;
@@ -22,6 +23,8 @@ class ListUsers extends ListRecords
         ];
     }
 
+
+
     public function getContextMenu(): ContextMenu
     {
         return ContextMenu::make()
@@ -34,6 +37,11 @@ class ListUsers extends ListRecords
                     ->color('gray')
                     ->url(CreateUser::getUrl())
                     ->icon('heroicon-o-user-plus'),
+                CreateAction::make()
+                    ->link()
+                    ->icon('heroicon-o-plus')
+                    ->color('gray')
+                    ->url(CreateUser::getUrl()),
                 CreateAction::make()
                     ->label('Quick create')
                     ->translateLabel()

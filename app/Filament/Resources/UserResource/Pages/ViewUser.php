@@ -4,53 +4,43 @@ namespace App\Filament\Resources\UserResource\Pages;
 
 use App\Filament\Resources\UserResource;
 use App\Models\User;
-use AymanAlhattami\FilamentContextMenu\ContextMenu;
 use AymanAlhattami\FilamentContextMenu\ContextMenuDivider;
 use AymanAlhattami\FilamentContextMenu\InteractsWithContextMenuActions;
 use Filament\Actions;
 use Filament\Actions\Action;
+use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\TextInput;
-use Filament\Infolists\Components\Grid;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Notifications\Notification;
-use Filament\Resources\Pages\EditRecord;
+use Filament\Resources\Pages\ViewRecord;
 
-class EditUser extends EditRecord
+class ViewUser extends ViewRecord
 {
     use InteractsWithContextMenuActions;
 
     protected static string $resource = UserResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\DeleteAction::make(),
-            Actions\ForceDeleteAction::make(),
-            Actions\RestoreAction::make(),
-        ];
-    }
-
     public function getContextMenuActions(): array
     {
         return [
-            Actions\Action::make("View")
+            Actions\EditAction::make('Edit modal')
+                ->label('Edit modal')
                 ->record($this->getRecord())
-                ->infolist([
+                ->form([
                     Grid::make(2)
                         ->schema([
-                            TextEntry::make('name'),
-                            TextEntry::make('email'),
-                            TextEntry::make('created_at'),
-                            TextEntry::make('updated_at')
+                            TextInput::make('name'),
+                            TextInput::make('email')->email(),
                         ])
                 ])
                 ->link()
-                ->icon('heroicon-o-eye'),
-            Actions\ViewAction::make()
-                ->label('View page')
+                ->icon('heroicon-o-pencil'),
+            Actions\EditAction::make()
+                ->label('Edit page')
+                ->color('gray')
                 ->link()
-                ->url(ViewUser::getUrl(['record' => $this->getRecord()]))
-                ->icon('heroicon-o-eye'),
+                ->url(EditUser::getUrl(['record' => $this->getRecord()]))
+                ->icon('heroicon-o-pencil-square'),
             Action::make('List users')
                 ->translateLabel()
                 ->link()
@@ -58,7 +48,8 @@ class EditUser extends EditRecord
                 ->url(ListUsers::getUrl())
                 ->icon('heroicon-o-users')
                 ->badge(User::count()),
-            Action::make('Update by modal')
+            Action::make('Edit name - modal')
+                ->label('Edit name - modal')
                 ->form([
                     \Filament\Forms\Components\Grid::make(2)
                         ->schema([
@@ -73,7 +64,7 @@ class EditUser extends EditRecord
                     ]);
 
                     $this->refreshFormData([
-                        'name',  'email'
+                        'name', 'email'
                     ]);
 
                     Notification::make()
@@ -86,8 +77,8 @@ class EditUser extends EditRecord
                 ->color('gray')
                 ->icon('heroicon-o-pencil'),
             Actions\CreateAction::make()
-                ->label('Create by modal')
                 ->model(User::class)
+                ->label('Create modal')
                 ->link()
                 ->icon('heroicon-o-plus')
                 ->form([
@@ -97,9 +88,8 @@ class EditUser extends EditRecord
                             TextInput::make('email'),
                             TextInput::make('password')->password(),
                         ])
-                ])
-            ,
-            Action::make('Create user')
+                ]),
+            Action::make('Create page')
                 ->translateLabel()
                 ->link()
                 ->color('gray')

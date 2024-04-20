@@ -10,3 +10,4 @@
 - add context menu for custom pages
 - use custom view for contextMenu
 - use custom view for contextMenuItem
+- action with modal
