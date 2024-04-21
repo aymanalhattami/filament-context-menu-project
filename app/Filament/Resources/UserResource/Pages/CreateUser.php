@@ -5,6 +5,7 @@ namespace App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource;
 use App\Models\User;
 use AymanAlhattami\FilamentContextMenu\ContextMenu;
+use AymanAlhattami\FilamentContextMenu\ContextMenuDivider;
 use AymanAlhattami\FilamentContextMenu\GoBackAction;
 use AymanAlhattami\FilamentContextMenu\GoForwardAction;
 use AymanAlhattami\FilamentContextMenu\RefreshAction;
@@ -22,6 +23,7 @@ class CreateUser extends CreateRecord
                 GoBackAction::make(),
                 GoForwardAction::make(),
                 RefreshAction::make(),
+                ContextMenuDivider::make(),
                 Action::make('List users')
                     ->translateLabel()
                     ->link()

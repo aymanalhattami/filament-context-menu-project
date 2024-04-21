@@ -121,7 +121,8 @@ class EditUser extends EditRecord
                 ->link()
                 ->visible(function(){
                     return (bool) $this->getRecord()->trashed();
-                }),
+                })
+                ->successRedirectUrl(ListUsers::getUrl()),
             Actions\RestoreAction::make()
                 ->record($this->getRecord())
                 ->translateLabel()

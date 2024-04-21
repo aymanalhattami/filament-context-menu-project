@@ -29,6 +29,7 @@ class ViewUser extends ViewRecord
             GoBackAction::make(),
             GoForwardAction::make(),
             RefreshAction::make(),
+            ContextMenuDivider::make(),
             Actions\EditAction::make('Edit modal')
                 ->label('Edit user')
                 ->record($this->getRecord())
@@ -118,7 +119,8 @@ class ViewUser extends ViewRecord
                 ->link()
                 ->visible(function(){
                     return (bool) $this->getRecord()->trashed();
-                }),
+                })
+                ->successRedirectUrl(ListUsers::getUrl()),
             Actions\RestoreAction::make()
                 ->record($this->getRecord())
                 ->translateLabel()
