@@ -4,7 +4,6 @@ namespace App\Filament\Resources\UserResource\Pages;
 
 use App\Filament\Resources\UserResource;
 use App\Models\User;
-use AymanAlhattami\FilamentContextMenu\ContextMenu;
 use AymanAlhattami\FilamentContextMenu\ContextMenuDivider;
 use AymanAlhattami\FilamentContextMenu\GoBackAction;
 use AymanAlhattami\FilamentContextMenu\GoForwardAction;
@@ -31,8 +30,8 @@ class EditUser extends EditRecord
             GoForwardAction::make(),
             RefreshAction::make(),
             ContextMenuDivider::make(),
-            Actions\ViewAction::make("View")
-                ->label('View user')
+            Actions\ViewAction::make("View user with infolist")
+                ->label('View user with infolist')
                 ->record($this->getRecord())
                 ->infolist([
                     Grid::make(2)
@@ -41,6 +40,20 @@ class EditUser extends EditRecord
                             TextEntry::make('email'),
                             TextEntry::make('created_at'),
                             TextEntry::make('updated_at')
+                        ])
+                ])
+                ->link()
+                ->icon('heroicon-o-eye'),
+            Actions\ViewAction::make("View user with form")
+                ->label('View user with form')
+                ->record($this->getRecord())
+                ->form([
+                    \Filament\Forms\Components\Grid::make(2)
+                        ->schema([
+                            TextInput::make('name'),
+                            TextInput::make('email'),
+                            TextInput::make('created_at'),
+                            TextInput::make('updated_at')
                         ])
                 ])
                 ->link()
