@@ -8,29 +8,31 @@ use AymanAlhattami\FilamentContextMenu\ContextMenu;
 use AymanAlhattami\FilamentContextMenu\ContextMenuDivider;
 use AymanAlhattami\FilamentContextMenu\GoBackAction;
 use AymanAlhattami\FilamentContextMenu\GoForwardAction;
+use AymanAlhattami\FilamentContextMenu\InteractsWithContextMenuActions;
 use AymanAlhattami\FilamentContextMenu\RefreshAction;
 use Filament\Actions\Action;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateUser extends CreateRecord
 {
+    use InteractsWithContextMenuActions;
+
     protected static string $resource = UserResource::class;
 
-    public function getContextMenu(): ContextMenu
+    public function getContextMenuActions(): array
     {
-        return ContextMenu::make()
-            ->actions([
-                GoBackAction::make(),
-                GoForwardAction::make(),
-                RefreshAction::make(),
-                ContextMenuDivider::make(),
-                Action::make('List users')
-                    ->translateLabel()
-                    ->link()
-                    ->color('gray')
-                    ->url(ListUsers::getUrl())
-                    ->icon('heroicon-o-users')
-                    ->badge(User::count()),
-            ]);
+        return [
+            GoBackAction::make(),
+            GoForwardAction::make(),
+            RefreshAction::make(),
+            ContextMenuDivider::make(),
+            Action::make('List users')
+                ->translateLabel()
+                ->link()
+                ->color('gray')
+                ->url(ListUsers::getUrl())
+                ->icon('heroicon-o-users')
+                ->badge(User::count()),
+        ];
     }
 }

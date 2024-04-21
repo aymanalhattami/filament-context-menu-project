@@ -46,6 +46,7 @@ class ListUsers extends ListRecords
                 ->formats([
                     ExportFormat::Csv,
                 ]),
+            ContextMenuDivider::make(),
             CreateAction::make('Create user')
                 ->label('Create user')
                 ->translateLabel()
@@ -59,7 +60,8 @@ class ListUsers extends ListRecords
                             TextInput::make('email'),
                             TextInput::make('password')->password(),
                         ])
-                ]),
+                ])
+            ,
             CreateAction::make()
                 ->label('Create user page')
                 ->link()
