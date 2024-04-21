@@ -10,7 +10,6 @@ use AymanAlhattami\FilamentContextMenu\GoForwardAction;
 use AymanAlhattami\FilamentContextMenu\InteractsWithContextMenuActions;
 use AymanAlhattami\FilamentContextMenu\RefreshAction;
 use Filament\Actions\Action;
-use Filament\Pages\Page;
 
 class Dashboard extends \Filament\Pages\Dashboard
 {
