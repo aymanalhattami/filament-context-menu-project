@@ -78,7 +78,7 @@
             "dist": {
                 "type": "path",
                 "url": "../@packages/aymanalhattami/filament-context-menu",
-                "reference": "9e88e6dfc35e8317cf02155719dcc17431a49b93"
+                "reference": "4eb09cae428c419bfc57429f5bdb35f203aec7ad"
             },
             "require": {
                 "filament/filament": "^3.0",
@@ -151,6 +151,10 @@
             "homepage": "https://github.com/aymanalhattami/filament-context-menu",
             "keywords": [
                 "ayman alhattami",
+                "context menu",
+                "filament",
+                "filament admin panel",
+                "filament context menu",
                 "filament_context_menu",
                 "laravel"
             ],
