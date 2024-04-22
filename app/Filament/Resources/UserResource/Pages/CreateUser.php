@@ -4,12 +4,12 @@ namespace App\Filament\Resources\UserResource\Pages;
 
 use App\Filament\Resources\UserResource;
 use App\Models\User;
+use AymanAlhattami\FilamentContextMenu\Actions\GoBackAction;
+use AymanAlhattami\FilamentContextMenu\Actions\GoForwardAction;
+use AymanAlhattami\FilamentContextMenu\Actions\RefreshAction;
 use AymanAlhattami\FilamentContextMenu\ContextMenu;
 use AymanAlhattami\FilamentContextMenu\ContextMenuDivider;
-use AymanAlhattami\FilamentContextMenu\GoBackAction;
-use AymanAlhattami\FilamentContextMenu\GoForwardAction;
-use AymanAlhattami\FilamentContextMenu\InteractsWithContextMenuActions;
-use AymanAlhattami\FilamentContextMenu\RefreshAction;
+use AymanAlhattami\FilamentContextMenu\Traits\InteractsWithContextMenuActions;
 use Filament\Actions\Action;
 use Filament\Resources\Pages\CreateRecord;
 

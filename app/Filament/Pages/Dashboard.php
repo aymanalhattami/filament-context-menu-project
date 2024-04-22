@@ -4,11 +4,11 @@ namespace App\Filament\Pages;
 
 use App\Filament\Resources\UserResource\Pages\CreateUser;
 use App\Filament\Resources\UserResource\Pages\ListUsers;
+use AymanAlhattami\FilamentContextMenu\Actions\GoBackAction;
+use AymanAlhattami\FilamentContextMenu\Actions\GoForwardAction;
+use AymanAlhattami\FilamentContextMenu\Actions\RefreshAction;
 use AymanAlhattami\FilamentContextMenu\ContextMenuDivider;
-use AymanAlhattami\FilamentContextMenu\GoBackAction;
-use AymanAlhattami\FilamentContextMenu\GoForwardAction;
-use AymanAlhattami\FilamentContextMenu\InteractsWithContextMenuActions;
-use AymanAlhattami\FilamentContextMenu\RefreshAction;
+use AymanAlhattami\FilamentContextMenu\Traits\InteractsWithContextMenuActions;
 use Filament\Actions\Action;
 
 class Dashboard extends \Filament\Pages\Dashboard
