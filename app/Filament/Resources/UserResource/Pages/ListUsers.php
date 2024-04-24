@@ -11,7 +11,7 @@ use AymanAlhattami\FilamentContextMenu\Actions\GoForwardAction;
 use AymanAlhattami\FilamentContextMenu\Actions\RefreshAction;
 use AymanAlhattami\FilamentContextMenu\ContextMenu;
 use AymanAlhattami\FilamentContextMenu\ContextMenuDivider;
-use AymanAlhattami\FilamentContextMenu\Traits\InteractsWithContextMenuActions;
+use AymanAlhattami\FilamentContextMenu\Traits\PageHasContextMenu;
 use Filament\Actions;
 use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
@@ -23,7 +23,7 @@ use Filament\Tables\Actions\ImportAction;
 
 class ListUsers extends ListRecords
 {
-    use InteractsWithContextMenuActions;
+    use PageHasContextMenu;
 
     protected static string $resource = UserResource::class;
 

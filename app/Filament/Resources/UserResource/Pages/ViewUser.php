@@ -8,7 +8,7 @@ use AymanAlhattami\FilamentContextMenu\Actions\GoBackAction;
 use AymanAlhattami\FilamentContextMenu\Actions\GoForwardAction;
 use AymanAlhattami\FilamentContextMenu\Actions\RefreshAction;
 use AymanAlhattami\FilamentContextMenu\ContextMenuDivider;
-use AymanAlhattami\FilamentContextMenu\Traits\InteractsWithContextMenuActions;
+use AymanAlhattami\FilamentContextMenu\Traits\PageHasContextMenu;
 use Filament\Actions;
 use Filament\Actions\Action;
 use Filament\Forms\Components\Grid;
@@ -19,7 +19,7 @@ use Filament\Resources\Pages\ViewRecord;
 
 class ViewUser extends ViewRecord
 {
-    use InteractsWithContextMenuActions;
+    use PageHasContextMenu;
 
     protected static string $resource = UserResource::class;
 

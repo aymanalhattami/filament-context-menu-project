@@ -9,13 +9,13 @@ use AymanAlhattami\FilamentContextMenu\Actions\GoForwardAction;
 use AymanAlhattami\FilamentContextMenu\Actions\RefreshAction;
 use AymanAlhattami\FilamentContextMenu\ContextMenu;
 use AymanAlhattami\FilamentContextMenu\ContextMenuDivider;
-use AymanAlhattami\FilamentContextMenu\Traits\InteractsWithContextMenuActions;
+use AymanAlhattami\FilamentContextMenu\Traits\PageHasContextMenu;
 use Filament\Actions\Action;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateUser extends CreateRecord
 {
-    use InteractsWithContextMenuActions;
+    use PageHasContextMenu;
 
     protected static string $resource = UserResource::class;
 

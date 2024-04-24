@@ -57,6 +57,15 @@ class UserResource extends Resource
                             ->link()
                             ->icon('heroicon-o-user')
                             ->badge(15),
+                        Action::make('Change name')
+                            ->form([
+                                Forms\Components\TextInput::make('name')
+                            ])
+                            ->action(function ($data) use ($record) {
+                                $record->update(['name' => $data['name']]);
+                            })
+                            ->icon('heroicon-o-plus')
+                            ->link(),
                         ContextMenuDivider::make(),
                         Action::make('test')
                             ->url(Pages\ViewUser::getUrl(['record' => $record]))
