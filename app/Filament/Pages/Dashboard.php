@@ -8,12 +8,12 @@ use AymanAlhattami\FilamentContextMenu\Actions\GoBackAction;
 use AymanAlhattami\FilamentContextMenu\Actions\GoForwardAction;
 use AymanAlhattami\FilamentContextMenu\Actions\RefreshAction;
 use AymanAlhattami\FilamentContextMenu\ContextMenuDivider;
-use AymanAlhattami\FilamentContextMenu\Traits\InteractsWithContextMenuActions;
+use AymanAlhattami\FilamentContextMenu\Traits\PageHasContextMenu;
 use Filament\Actions\Action;
 
 class Dashboard extends \Filament\Pages\Dashboard
 {
-    use InteractsWithContextMenuActions;
+    use PageHasContextMenu;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 

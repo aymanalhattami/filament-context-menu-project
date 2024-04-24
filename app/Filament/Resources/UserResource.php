@@ -2,10 +2,8 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Exports\UserExporter;
 use App\Filament\Resources\UserResource\Pages;
 use App\Models\User;
-use AymanAlhattami\FilamentContextMenu\Columns\ContextMenuColumn;
 use AymanAlhattami\FilamentContextMenu\Columns\ContextMenuTextColumn;
 use AymanAlhattami\FilamentContextMenu\ContextMenuDivider;
 use Filament\Actions\Action;
@@ -13,7 +11,6 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Actions\ExportAction;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
