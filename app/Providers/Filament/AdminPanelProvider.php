@@ -4,6 +4,7 @@ namespace App\Providers\Filament;
 
 use App\Filament\Pages\Dashboard;
 use App\Filament\Pages\Login;
+use Closure;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -12,6 +13,8 @@ use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Support\Facades\FilamentView;
+use Filament\Tables\Columns\Column;
+use Filament\Tables\Columns\TextColumn;
 use Filament\View\PanelsRenderHook;
 use Filament\Widgets;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -62,11 +65,8 @@ class AdminPanelProvider extends PanelProvider
             ;
     }
 
-//    public function boot(): void
-//    {
-//        FilamentView::registerRenderHook(
-//            PanelsRenderHook::PAGE_START,
-//            fn () => view('components.pure-js-context-menu'),
-//        );
-//    }
+    public function boot(): void
+    {
+
+    }
 }
