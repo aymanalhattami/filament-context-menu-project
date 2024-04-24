@@ -5,8 +5,9 @@ namespace App\Filament\Resources;
 use App\Filament\Exports\UserExporter;
 use App\Filament\Resources\UserResource\Pages;
 use App\Models\User;
-use AymanAlhattami\FilamentContextMenu\Columns\ColumnWithContextMenu;
 use AymanAlhattami\FilamentContextMenu\Columns\ContextMenuColumn;
+use AymanAlhattami\FilamentContextMenu\Columns\ContextMenuTextColumn;
+use AymanAlhattami\FilamentContextMenu\ContextMenuDivider;
 use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -48,36 +49,99 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                ContextMenuColumn::make('id')
+                ContextMenuTextColumn::make('id')
                     ->searchable()
                     ->contextMenuActions(fn (Model $record) => [
                         Action::make('test')
                             ->url(Pages\ViewUser::getUrl(['record' => $record]))
                             ->link()
                             ->icon('heroicon-o-user')
+                            ->badge(15),
+                        ContextMenuDivider::make(),
+                        Action::make('test')
+                            ->url(Pages\ViewUser::getUrl(['record' => $record]))
+                            ->link()
+                            ->icon('heroicon-o-user')
                             ->badge(15)
-                            ->visible($record->id == 1)
                     ]),
-                ContextMenuColumn::make('name')
+                ContextMenuTextColumn::make('name')
                     ->searchable()
+                    ->contextMenuActions(fn (Model $record) => [
+                        Action::make('test')
+                            ->url(Pages\ViewUser::getUrl(['record' => $record]))
+                            ->link()
+                            ->icon('heroicon-o-user')
+                            ->badge(15),
+                        Action::make('test')
+                            ->url(Pages\ViewUser::getUrl(['record' => $record]))
+                            ->link()
+                            ->icon('heroicon-o-user')
+                            ->badge(15)
+                    ])
                     ,
-                Tables\Columns\TextColumn::make('email')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('email_verified_at')
-                    ->dateTime()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('deleted_at')
+                ContextMenuTextColumn::make('email')
+                    ->searchable()
+                    ->contextMenuActions(fn (Model $record) => [
+                        Action::make('test')
+                            ->url(Pages\ViewUser::getUrl(['record' => $record]))
+                            ->link()
+                            ->icon('heroicon-o-user')
+                            ->badge(15),
+                    ]),
+                ContextMenuTextColumn::make('email_verified_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->contextMenuActions(fn (Model $record) => [
+                        Action::make('test')
+                            ->url(Pages\ViewUser::getUrl(['record' => $record]))
+                            ->link()
+                            ->icon('heroicon-o-user')
+                            ->badge(15),
+                    ]),
+                ContextMenuTextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->contextMenuActions(fn (Model $record) => [
+                        Action::make('test')
+                            ->url(Pages\ViewUser::getUrl(['record' => $record]))
+                            ->link()
+                            ->icon('heroicon-o-user')
+                            ->badge(15),
+                        Action::make('test')
+                            ->url(Pages\ViewUser::getUrl(['record' => $record]))
+                            ->link()
+                            ->icon('heroicon-o-user')
+                            ->badge(15)
+                    ]),
+                ContextMenuTextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->contextMenuActions(fn (Model $record) => [
+                        Action::make('test')
+                            ->url(Pages\ViewUser::getUrl(['record' => $record]))
+                            ->link()
+                            ->icon('heroicon-o-user')
+                            ->badge(15),
+                        Action::make('test')
+                            ->url(Pages\ViewUser::getUrl(['record' => $record]))
+                            ->link()
+                            ->icon('heroicon-o-user')
+                            ->badge(15)
+                    ]),
+                ContextMenuTextColumn::make('deleted_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->contextMenuActions(fn (Model $record) => [
+                        Action::make('test')
+                            ->url(Pages\ViewUser::getUrl(['record' => $record]))
+                            ->link()
+                            ->icon('heroicon-o-user')
+                            ->badge(15)
+                    ])
+                ,
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make()->searchable(),
