@@ -7,6 +7,7 @@ use App\Models\User;
 use AymanAlhattami\FilamentContextMenu\Columns\ContextMenuTextColumn;
 use AymanAlhattami\FilamentContextMenu\ContextMenuDivider;
 use Filament\Actions\Action;
+use Filament\Actions\DeleteAction;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -49,103 +50,133 @@ class UserResource extends Resource
                 ContextMenuTextColumn::make('id')
                     ->searchable()
                     ->contextMenuActions(fn (Model $record) => [
-                        Action::make('test')
+                        Action::make('View user')
                             ->url(Pages\ViewUser::getUrl(['record' => $record]))
                             ->link()
-                            ->icon('heroicon-o-user')
-                            ->badge(15),
-                        Action::make('Change name')
-                            ->form([
-                                Forms\Components\TextInput::make('name')
-                            ])
-                            ->action(function ($data) use ($record) {
-                                $record->update(['name' => $data['name']]);
-                            })
-                            ->icon('heroicon-o-plus')
-                            ->link(),
+                            ->icon('heroicon-o-user'),
+                        Action::make('Edit user')
+                            ->url(Pages\EditUser::getUrl(['record' => $record]))
+                            ->link()
+                            ->icon('heroicon-o-pencil'),
                         ContextMenuDivider::make(),
-                        Action::make('test')
-                            ->url(Pages\ViewUser::getUrl(['record' => $record]))
+                        DeleteAction::make('test')
+                            ->record($record)
                             ->link()
-                            ->icon('heroicon-o-user')
-                            ->badge(15)
+                            ->icon('heroicon-o-trash')
                     ]),
                 ContextMenuTextColumn::make('name')
                     ->searchable()
                     ->contextMenuActions(fn (Model $record) => [
-                        Action::make('test')
+                        Action::make('View user')
                             ->url(Pages\ViewUser::getUrl(['record' => $record]))
                             ->link()
-                            ->icon('heroicon-o-user')
-                            ->badge(15),
-                        Action::make('test')
-                            ->url(Pages\ViewUser::getUrl(['record' => $record]))
+                            ->icon('heroicon-o-user'),
+                        Action::make('Edit user')
+                            ->url(Pages\EditUser::getUrl(['record' => $record]))
                             ->link()
-                            ->icon('heroicon-o-user')
-                            ->badge(15)
+                            ->icon('heroicon-o-pencil'),
+                        ContextMenuDivider::make(),
+                        DeleteAction::make('test')
+                            ->record($record)
+                            ->link()
+                            ->icon('heroicon-o-trash')
                     ])
                     ,
                 ContextMenuTextColumn::make('email')
                     ->searchable()
                     ->contextMenuActions(fn (Model $record) => [
-                        Action::make('test')
+                        Action::make('View user')
                             ->url(Pages\ViewUser::getUrl(['record' => $record]))
                             ->link()
-                            ->icon('heroicon-o-user')
-                            ->badge(15),
-                    ]),
+                            ->icon('heroicon-o-user'),
+                        Action::make('Edit user')
+                            ->url(Pages\EditUser::getUrl(['record' => $record]))
+                            ->link()
+                            ->icon('heroicon-o-pencil'),
+                        ContextMenuDivider::make(),
+                        DeleteAction::make('test')
+                            ->record($record)
+                            ->link()
+                            ->icon('heroicon-o-trash')
+                    ])
+                ,
                 ContextMenuTextColumn::make('email_verified_at')
                     ->dateTime()
                     ->sortable()
                     ->contextMenuActions(fn (Model $record) => [
-                        Action::make('test')
+                        Action::make('View user')
                             ->url(Pages\ViewUser::getUrl(['record' => $record]))
                             ->link()
-                            ->icon('heroicon-o-user')
-                            ->badge(15),
-                    ]),
+                            ->icon('heroicon-o-user'),
+                        Action::make('Edit user')
+                            ->url(Pages\EditUser::getUrl(['record' => $record]))
+                            ->link()
+                            ->icon('heroicon-o-pencil'),
+                        ContextMenuDivider::make(),
+                        DeleteAction::make('test')
+                            ->record($record)
+                            ->link()
+                            ->icon('heroicon-o-trash')
+                    ])
+                ,
                 ContextMenuTextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->contextMenuActions(fn (Model $record) => [
-                        Action::make('test')
+                        Action::make('View user')
                             ->url(Pages\ViewUser::getUrl(['record' => $record]))
                             ->link()
-                            ->icon('heroicon-o-user')
-                            ->badge(15),
-                        Action::make('test')
-                            ->url(Pages\ViewUser::getUrl(['record' => $record]))
+                            ->icon('heroicon-o-user'),
+                        Action::make('Edit user')
+                            ->url(Pages\EditUser::getUrl(['record' => $record]))
                             ->link()
-                            ->icon('heroicon-o-user')
-                            ->badge(15)
-                    ]),
+                            ->icon('heroicon-o-pencil'),
+                        ContextMenuDivider::make(),
+                        DeleteAction::make('test')
+                            ->record($record)
+                            ->link()
+                            ->icon('heroicon-o-trash')
+                    ])
+                ,
                 ContextMenuTextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->contextMenuActions(fn (Model $record) => [
-                        Action::make('test')
+                        Action::make('View user')
                             ->url(Pages\ViewUser::getUrl(['record' => $record]))
                             ->link()
-                            ->icon('heroicon-o-user')
-                            ->badge(15),
-                        Action::make('test')
-                            ->url(Pages\ViewUser::getUrl(['record' => $record]))
+                            ->icon('heroicon-o-user'),
+                        Action::make('Edit user')
+                            ->url(Pages\EditUser::getUrl(['record' => $record]))
                             ->link()
-                            ->icon('heroicon-o-user')
-                            ->badge(15)
-                    ]),
+                            ->icon('heroicon-o-pencil'),
+                        ContextMenuDivider::make(),
+                        DeleteAction::make('test')
+                            ->record($record)
+                            ->link()
+                            ->icon('heroicon-o-trash')
+                    ])
+                ,
                 ContextMenuTextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->contextMenuActions(fn (Model $record) => [
-                        Action::make('test')
+                        Action::make('View user')
                             ->url(Pages\ViewUser::getUrl(['record' => $record]))
                             ->link()
-                            ->icon('heroicon-o-user')
-                            ->badge(15)
+                            ->icon('heroicon-o-user'),
+                        Action::make('Edit user')
+                            ->url(Pages\EditUser::getUrl(['record' => $record]))
+                            ->link()
+                            ->icon('heroicon-o-pencil'),
+                        ContextMenuDivider::make(),
+                        DeleteAction::make('test')
+                            ->record($record)
+                            ->link()
+                            ->icon('heroicon-o-trash')
                     ])
                 ,
             ])
