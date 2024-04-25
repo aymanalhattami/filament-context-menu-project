@@ -50,9 +50,6 @@ class UserResource extends Resource
                 ContextMenuTextColumn::make('id')
                     ->searchable()
                     ->contextMenuActions(fn (Model $record) => [
-//                        Tables\Actions\ViewAction::make()->record($record),
-//                        Tables\Actions\EditAction::make()->record($record),
-//                        Tables\Actions\DeleteAction::make()->record($record),
                         Action::make('View user')
                             ->url(Pages\ViewUser::getUrl(['record' => $record]))
                             ->link()
@@ -61,12 +58,9 @@ class UserResource extends Resource
                             ->url(Pages\EditUser::getUrl(['record' => $record]))
                             ->link()
                             ->icon('heroicon-o-pencil'),
-                        ContextMenuDivider::make(),
-                        DeleteAction::make('test')
-                            ->record($record)
-                            ->link()
-                            ->icon('heroicon-o-trash')
-                    ]),
+                        ContextMenuDivider::make()->visible(false),
+                    ])
+                ,
                 ContextMenuTextColumn::make('name')
                     ->searchable()
 //                    ->contextMenuActions(fn (Model $record) => [
