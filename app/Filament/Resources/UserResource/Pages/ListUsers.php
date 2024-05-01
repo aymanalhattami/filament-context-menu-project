@@ -27,8 +27,16 @@ class ListUsers extends ListRecords
 
     protected static string $resource = UserResource::class;
 
+    protected function getActions(): array
+    {
+        return [
+            CreateAction::make()
+        ];
+    }
+
     public function getContextMenuActions(): array
     {
+
         return [
             GoBackAction::make(),
             GoForwardAction::make(),
@@ -61,12 +69,12 @@ class ListUsers extends ListRecords
                         ])
                 ])
             ,
-            CreateAction::make()
-                ->label('Create user page')
-                ->link()
-                ->icon('heroicon-o-plus')
-                ->color('gray')
-                ->url(CreateUser::getUrl()),
+//            CreateAction::make()
+//                ->label('Create user page')
+//                ->link()
+//                ->icon('heroicon-o-plus')
+//                ->color('gray')
+//                ->url(CreateUser::getUrl()),
         ];
     }
 }

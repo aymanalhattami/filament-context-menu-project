@@ -59,8 +59,8 @@ class UserResource extends Resource
                             ->link()
                             ->color('gray')
                             ->icon('heroicon-o-pencil'),
-//                        ContextMenuDivider::make()->visible(false),
-//                        Tables\Actions\DeleteAction::make('test')
+//                        ContextMenuDivider::make()->visible(true),
+//                        Tables\Actions\DeleteAction::make()
 //                            ->record($record)
 //                            ->link()
 //                            ->icon('heroicon-o-trash')
