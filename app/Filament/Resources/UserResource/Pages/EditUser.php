@@ -31,7 +31,7 @@ class EditUser extends EditRecord
             RefreshAction::make(),
             ContextMenuDivider::make(),
             Actions\ViewAction::make("View user with infolist")
-                ->label('View user with infolist')
+                ->label(__('View user with infolist'))
                 ->record($this->getRecord())
                 ->infolist([
                     Grid::make(2)
@@ -45,7 +45,7 @@ class EditUser extends EditRecord
                 ->link()
                 ->icon('heroicon-o-eye'),
             Actions\ViewAction::make("View user with form")
-                ->label('View user with form')
+                ->label(__('View user with form'))
                 ->record($this->getRecord())
                 ->form([
                     \Filament\Forms\Components\Grid::make(2)
@@ -59,7 +59,7 @@ class EditUser extends EditRecord
                 ->link()
                 ->icon('heroicon-o-eye'),
             Actions\ViewAction::make()
-                ->label('View user page')
+                ->label(__('View user page'))
                 ->link()
                 ->url(ViewUser::getUrl(['record' => $this->getRecord()]))
                 ->icon('heroicon-o-eye'),
@@ -71,7 +71,7 @@ class EditUser extends EditRecord
                 ->icon('heroicon-o-users')
                 ->badge(User::count()),
             Action::make('Edit name')
-                ->label('Edit name')
+                ->label(__('Edit name'))
                 ->form([
                     \Filament\Forms\Components\Grid::make(2)
                         ->schema([
@@ -99,7 +99,7 @@ class EditUser extends EditRecord
                 ->color('gray')
                 ->icon('heroicon-o-pencil'),
             Actions\CreateAction::make()
-                ->label('Create user')
+                ->label(__('Create user'))
                 ->model(User::class)
                 ->link()
                 ->icon('heroicon-o-plus')

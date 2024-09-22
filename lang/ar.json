@@ -1,0 +1,21 @@
+{
+    "Users": "المستخدمين",
+    "User": "مستخدم",
+    "Id" : "المعرف",
+    "Name" : "الاسم",
+    "Email" : "البريد الالكتروني",
+    "Go back" : "الى الخلف",
+    "Go forward" : "الى الامام",
+    "Refresh" : "تحديث",
+    "Create user" : "إنشاء مستخدم",
+    "View user" : "عرض المستخدم",
+    "Edit user" : "تعديل المستخدم",
+    "List users" : "قائمة المستخدمين",
+    "Edit name" : "تعديل الاسم",
+    "Edit user page" : "صفحة تعديل المستخدم",
+    "Create user page" : "صفحة انشاء مستخدم",
+    "View user page" : "صفحة عرض المستخدم",
+    "View user with infolist" : "عرض المستخدم 1",
+    "View user with form" : "عرض المستخدم 2",
+    "Email verified at" : "تم التحقق بتأريخ"
+}

@@ -31,7 +31,7 @@ class ViewUser extends ViewRecord
             RefreshAction::make(),
             ContextMenuDivider::make(),
             Actions\EditAction::make('Edit modal')
-                ->label('Edit user')
+                ->label(__('Edit user'))
                 ->record($this->getRecord())
                 ->form([
                     Grid::make(2)
@@ -43,12 +43,13 @@ class ViewUser extends ViewRecord
                 ->link()
                 ->icon('heroicon-o-pencil'),
             Actions\EditAction::make()
-                ->label('Edit user page')
+                ->label(__('Edit user page'))
                 ->color('gray')
                 ->link()
                 ->url(EditUser::getUrl(['record' => $this->getRecord()]))
                 ->icon('heroicon-o-pencil-square'),
             Action::make('List users')
+                ->label(__('List users'))
                 ->translateLabel()
                 ->link()
                 ->color('gray')
@@ -56,7 +57,7 @@ class ViewUser extends ViewRecord
                 ->icon('heroicon-o-users')
                 ->badge(User::count()),
             Action::make('Edit name')
-                ->label('Edit name')
+                ->label(__('Edit name'))
                 ->form([
                     \Filament\Forms\Components\Grid::make(2)
                         ->schema([
@@ -85,7 +86,7 @@ class ViewUser extends ViewRecord
                 ->icon('heroicon-o-pencil'),
             Actions\CreateAction::make()
                 ->model(User::class)
-                ->label('Create user')
+                ->label(__('Create user'))
                 ->link()
                 ->icon('heroicon-o-plus')
                 ->form([
@@ -97,7 +98,7 @@ class ViewUser extends ViewRecord
                         ])
                 ]),
             Actions\CreateAction::make('Create user page')
-                ->label('Create user page')
+                ->label(__('Create user page'))
                 ->translateLabel()
                 ->link()
                 ->color('gray')

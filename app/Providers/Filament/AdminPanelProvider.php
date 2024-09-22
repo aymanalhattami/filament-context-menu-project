@@ -4,7 +4,9 @@ namespace App\Providers\Filament;
 
 use App\Filament\Pages\Dashboard;
 use App\Filament\Pages\Login;
+use BezhanSalleh\FilamentLanguageSwitch\LanguageSwitch;
 use Closure;
+use Filament\Forms\Components\Field;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -15,6 +17,7 @@ use Filament\Support\Colors\Color;
 use Filament\Support\Facades\FilamentView;
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
 use Filament\View\PanelsRenderHook;
 use Filament\Widgets;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -31,9 +34,11 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
+            ->font('Tajawal')
             ->id('admin')
             ->path('admin')
             ->login(Login::class)
+            ->databaseNotifications()
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -67,6 +72,25 @@ class AdminPanelProvider extends PanelProvider
 
     public function boot(): void
     {
+        LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
+            $switch
+                ->locales(['ar','en']); // also accepts a closure
+        });
 
+        Column::configureUsing(function (Column $column): void {
+            $column->toggleable()
+                ->translateLabel()
+                ->searchable()
+                ->sortable();
+        });
+
+        Field::configureUsing(function (Field $field) {
+            $field->translateLabel();
+        });
+
+        Table::configureUsing(function (Table $table) {
+            $table->defaultSort('id', 'desc')
+                ->paginated([10, 25, 50, 100]);
+        });
     }
 }

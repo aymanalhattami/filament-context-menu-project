@@ -15,7 +15,7 @@ class Dashboard extends \Filament\Pages\Dashboard
 {
     use PageHasContextMenu;
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $navigationIcon = 'heroicon-o-home';
 
     public function getContextMenuActions(): array
     {

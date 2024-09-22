@@ -43,10 +43,12 @@ class ListUsers extends ListRecords
             RefreshAction::make(),
             ContextMenuDivider::make(),
             Actions\ImportAction::make()
+                ->pluralModelLabel(__("Users"))
                 ->importer(UserImporter::class)
                 ->link()
                 ->icon('heroicon-o-arrow-up-tray'),
             Actions\ExportAction::make()
+                ->pluralModelLabel(__("Users"))
                 ->exporter(UserExporter::class)
                 ->link()
                 ->icon('heroicon-o-arrow-down-tray')
@@ -55,7 +57,7 @@ class ListUsers extends ListRecords
                 ]),
             ContextMenuDivider::make(),
             CreateAction::make('Create user')
-                ->label('Create user')
+                ->label(__('Create user'))
                 ->translateLabel()
                 ->model(User::class)
                 ->icon('heroicon-o-user-plus')
